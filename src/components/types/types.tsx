@@ -6,7 +6,6 @@ export type MealItemType = {
 };
 
 export type InputType = {
-  // ref: HTMLInputElement;
   label: string;
   input: {
     id: string;
