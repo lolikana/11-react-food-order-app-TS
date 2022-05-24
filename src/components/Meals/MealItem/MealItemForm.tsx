@@ -4,13 +4,17 @@ import Input from '../../UI/Input';
 import s from './MealItemForm.module.css';
 
 const MealItemForm: FC<{ id: string }> = props => {
-  const amountInputRef = useRef();
+  // const amountInputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const amountInputRef = useRef<HTMLInputElement>(null);
 
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const enteredAmount = amountInputRef.current.value; // value is always a string
-    const enteredAmountNumber = +enteredAmount; 
+    const enteredAmount = amountInputRef.current?.value; // value is always a string
+    const enteredAmountNumber = Number(enteredAmount); 
+    console.log(enteredAmount);
+    console.log(enteredAmountNumber);
+    
   };
 
   return (
