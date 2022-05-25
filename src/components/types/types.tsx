@@ -17,9 +17,18 @@ export type InputType = {
   };
 };
 
+export type addItemParaType = {
+  id: string;
+  name: string;
+  amount: number;
+  price: number;
+  onRemove: () => void;
+  onAdd: () => void;
+};
+
 export type CartContextType = {
-  items: {}[];
+  items: any[];
   totalAmount: number;
-  addItem: () => void;
-  removeItem: () => void;
+  addItem: (item: addItemParaType) => void;
+  removeItem: (id: string) => void;
 };
