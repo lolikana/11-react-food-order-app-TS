@@ -4,6 +4,8 @@ video tutorial: <a href="https://www.udemy.com/course/react-the-complete-guide-i
 
 Also, I implemented Typescript for practice.
 
+<a href="https://celadon-creponne-deb70f.netlify.app/">Live Preview</a> with Netlify.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
