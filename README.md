@@ -1,6 +1,11 @@
 # Getting Started with Create React App
 
+video tutorial: <a href="https://www.udemy.com/course/react-the-complete-guide-incl-redux/">React - The Complete Guide (incl Hooks, React Router, Redux)</a> (Section 11) from <em>Maximilian Schwarzmüller</em>
+
+Also, I implemented Typescript for practice.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
