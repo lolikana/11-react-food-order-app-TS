@@ -17,6 +17,13 @@ export type InputType = {
   };
 };
 
+export type mealType = {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+};
+
 export type addItemParaType = {
   id: string;
   name: string;
@@ -31,4 +38,11 @@ export type CartContextType = {
   totalAmount: number;
   addItem: (item: addItemParaType) => void;
   removeItem: (id: string) => void;
+};
+
+export type requestConfigType = {
+  url: string;
+  method: string;
+  body: string | null;
+  headers: {};
 };
