@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { FC } from 'react';
 import CartContext from '../../store/cart-context';
 import { addItemParaType } from '../types/types';
@@ -6,15 +6,16 @@ import Modal from '../UI/Modal';
 
 import s from './Cart.module.css';
 import CartItem from './CartItem';
+// import Checkout from './Checkout';
+import CheckoutReducer from './Checkout-reducer';
 
 type Props = {
   onShowCart: () => void;
 };
 
 const Cart: FC<Props> = props => {
+  const [isCheckout, setIsCheckout] = useState(false);
   const cartCtx = useContext(CartContext);
-
-  console.log(cartCtx.items);
 
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItem = cartCtx.items.length > 0;
@@ -25,6 +26,23 @@ const Cart: FC<Props> = props => {
   const cartItemAddHandler = (item: addItemParaType) => {
     cartCtx.addItem({ ...item, amount: 1 });
   };
+
+  const orderHandler = () => {
+    setIsCheckout(true);
+  };
+
+  const modalAction = (
+    <div className={s.actions}>
+      <button className={s['button--alt']} onClick={props.onShowCart}>
+        Close
+      </button>
+      {hasItem && (
+        <button className={s.button} onClick={orderHandler}>
+          Order
+        </button>
+      )}
+    </div>
+  );
 
   const cartItems = (
     <ul className={s['cart-items']}>
@@ -49,12 +67,9 @@ const Cart: FC<Props> = props => {
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
-      <div className={s.actions}>
-        <button className={s['button--alt']} onClick={props.onShowCart}>
-          Close
-        </button>
-        {hasItem && <button className={s.button}>Order</button>}
-      </div>
+      {/* {isCheckout && <Checkout onCancel={props.onShowCart} />} */}
+      {isCheckout && <CheckoutReducer onCancel={props.onShowCart} />}
+      {!isCheckout && modalAction}
     </Modal>
   );
 };

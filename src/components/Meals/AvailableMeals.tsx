@@ -35,7 +35,7 @@ const AvailableMeals = () => {
     );
   }, [fetchMeals]);
 
-  let content = <h2>Not meals found</h2>;
+  let content = <h2>No meals found</h2>;
 
   if (meals.length > 0) {
     content = (

@@ -46,3 +46,9 @@ export type requestConfigType = {
   body: string | null;
   headers: {};
 };
+export type customerInfoType = {
+  name: string;
+  street: string;
+  postal: string;
+  city: string;
+};
