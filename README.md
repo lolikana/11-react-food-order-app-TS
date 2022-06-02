@@ -2,7 +2,7 @@
 
 video tutorial: <a href="https://www.udemy.com/course/react-the-complete-guide-incl-redux/">React - The Complete Guide (incl Hooks, React Router, Redux)</a> from <em>Maximilian Schwarzmüller</em>
 + Section 11 - Practice Project - Building a Food Order App
-+ Section 16 - Adding Http & Forms to order. Fetching data with Firebase Realtime Database
++ Section 17 - Adding Http & Forms to order. Fetching data with Firebase Realtime Database
 
 Also, I implemented Typescript for practice.
 
