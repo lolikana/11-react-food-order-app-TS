@@ -4,7 +4,7 @@ video tutorial: <a href="https://www.udemy.com/course/react-the-complete-guide-i
 
 Also, I implemented Typescript for practice.
 
-<a href="[https://celadon-creponne-deb70f.netlify.app/](https://11-react-food-order-app-ts.vercel.app/)">Live Preview</a> with Vercel.
+<a href="https://11-react-food-order-app-ts.vercel.app/">Live Preview</a> with Vercel.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
