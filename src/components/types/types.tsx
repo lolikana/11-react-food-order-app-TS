@@ -38,6 +38,7 @@ export type CartContextType = {
   totalAmount: number;
   addItem: (item: addItemParaType) => void;
   removeItem: (id: string) => void;
+  clearCart: () => void;
 };
 
 export type requestConfigType = {

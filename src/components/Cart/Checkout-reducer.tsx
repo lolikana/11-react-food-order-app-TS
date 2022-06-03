@@ -5,6 +5,8 @@ import s from './Checkout.module.css';
 
 type Props = {
   onCancel: () => void;
+  onConfirm: (data: {}) => void;
+  toDisabledBtn: boolean;
 };
 
 const CheckoutReducer: FC<Props> = props => {
@@ -26,6 +28,7 @@ const CheckoutReducer: FC<Props> = props => {
     inputBlurHandler: inputStreetBlurHandler,
     reset: resetStreet,
   } = useInput((value: string) => value.trim() !== '');
+
   const {
     value: enteredPostal,
     isValid: postalIsValid,
@@ -34,7 +37,8 @@ const CheckoutReducer: FC<Props> = props => {
     inputChangeHandler: inputPostalHandler,
     inputBlurHandler: inputPostalBlurHandler,
     reset: resetPostal,
-  } = useInput((value: string) => value.trim().length === 5 && !isNaN(+value));
+  } = useInput((value: string) => /\d{3}-\d{4}/.test(value));
+  // } = useInput((value: string) => value.trim().length === 5 && !isNaN(+value));
   const {
     value: enteredCity,
     isValid: cityIsValid,
@@ -46,17 +50,7 @@ const CheckoutReducer: FC<Props> = props => {
   } = useInput((value: string) => value.trim() !== '');
 
   let formIsValid = false;
-
-  const valuesAreValids = nameIsValid && streetIsValid && postalIsValid && cityIsValid;
-
-  if (valuesAreValids) {
-    formIsValid = true;
-  }
-
-  // const nameInputClasse = nameInputHasError ? `${s.control} ${s.invalid}` : s.control;
-  // const streetInputClasse = streetInputHasError ? `${s.control} ${s.invalid}` : s.control;
-  // const postalInputClasse = postalInputHasError ? `${s.control} ${s.invalid}` : s.control;
-  // const cityInputClasse = cityInputHasError ? `${s.control} ${s.invalid}` : s.control;
+  formIsValid = nameIsValid && streetIsValid && postalIsValid && cityIsValid;
 
   const confirmHandler = (event: FormEvent) => {
     event.preventDefault();
@@ -69,6 +63,13 @@ const CheckoutReducer: FC<Props> = props => {
     resetStreet();
     resetPostal();
     resetCity();
+
+    props.onConfirm({
+      name: enteredName,
+      street: enteredStreet,
+      postal: enteredPostal,
+      city: enteredCity,
+    });
   };
 
   return (
@@ -109,7 +110,7 @@ const CheckoutReducer: FC<Props> = props => {
           onBlur={inputPostalBlurHandler}
         />
         {postalInputHasError && (
-          <p className={s['error-msg']}>Please enter a valid postal code! (00000)</p>
+          <p className={s['error-msg']}>Please enter a valid postal code! (000-0000)</p>
         )}
       </div>
       <div className={cityInputClasse}>
@@ -129,7 +130,9 @@ const CheckoutReducer: FC<Props> = props => {
         <button type="button" onClick={props.onCancel}>
           Cancel
         </button>
-        <button className={s.submit}>Confirm</button>
+        <button disabled={!formIsValid || props.toDisabledBtn} className={s.submit}>
+          Confirm
+        </button>
       </div>
     </form>
   );

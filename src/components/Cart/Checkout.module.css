@@ -49,8 +49,8 @@
   color: white;
 }
 
-.actions .submit:hover,
-.actions .submit:active {
+.actions .submit:hover:not([disabled]),
+.actions .submit:active:not([disabled]) {
   background-color: #7a2706;
 }
 
@@ -66,4 +66,10 @@
 .error-msg {
   color: #aa0b20;
   margin-top: 0;
+}
+
+button:disabled.submit {
+  cursor: not-allowed;
+  background-color: rgb(200, 200, 200);
+  border: none
 }

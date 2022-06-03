@@ -61,22 +61,30 @@ const Checkout: FC<Props> = props => {
       <div className={`${s.control} ${formInputValidity.name ? '' : s.invalid}`}>
         <label htmlFor="name">Your Name</label>
         <input type="text" id="name" ref={nameInputRef} />
-        {!formInputValidity.name && <p>Please enter a valid name!</p>}
+        {!formInputValidity.name && (
+          <p className={s['error-msg']}>Please enter a valid name!</p>
+        )}
       </div>
       <div className={`${s.control} ${formInputValidity.street ? '' : s.invalid}`}>
         <label htmlFor="street">Street</label>
         <input type="text" id="street" ref={streetInputRef} />
-        {!formInputValidity.street && <p>Please enter a valid street!</p>}
+        {!formInputValidity.street && (
+          <p className={s['error-msg']}>Please enter a valid street!</p>
+        )}
       </div>
       <div className={`${s.control} ${formInputValidity.postal ? '' : s.invalid}`}>
         <label htmlFor="postal">Postal Code</label>
         <input type="text" id="postal" ref={postalInputRef} />
-        {!formInputValidity.postal && <p>Please enter a valid postal!</p>}
+        {!formInputValidity.postal && (
+          <p className={s['error-msg']}>Please enter a valid postal!</p>
+        )}
       </div>
       <div className={`${s.control} ${formInputValidity.city ? '' : s.invalid}`}>
         <label htmlFor="city">City</label>
         <input type="text" id="city" ref={cityInputRef} />
-        {!formInputValidity.city && <p>Please enter a valid city!</p>}
+        {!formInputValidity.city && (
+          <p className={s['error-msg']}>Please enter a valid city!</p>
+        )}
       </div>
       <div className={s.actions}>
         <button type="button" onClick={props.onCancel}>
