@@ -38,7 +38,6 @@ const CheckoutReducer: FC<Props> = props => {
     inputBlurHandler: inputPostalBlurHandler,
     reset: resetPostal,
   } = useInput((value: string) => /\d{3}-\d{4}/.test(value));
-  // } = useInput((value: string) => value.trim().length === 5 && !isNaN(+value));
   const {
     value: enteredCity,
     isValid: cityIsValid,
