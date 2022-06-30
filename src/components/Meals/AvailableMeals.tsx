@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Card from '../UI/Card';
-// import { DUMMY_MEALS } from './MealsDatas';
 import s from './AvailableMeals.module.css';
 import MealItem from './MealItem/MealItem';
 import useHttp from '../../hooks/use-htttp';
@@ -52,15 +51,6 @@ const AvailableMeals = () => {
       </ul>
     );
   }
-  // const mealsList = DUMMY_MEALS.map(meal => (
-  //   <MealItem
-  //     key={meal.id}
-  //     id={meal.id}
-  //     name={meal.name}
-  //     description={meal.description}
-  //     price={meal.price}
-  //   />
-  // ));
 
   if (isLoading) {
     content = <LoadingSpinner content="Loading" />;
